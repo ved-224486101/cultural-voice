@@ -1,13 +1,20 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { ArrowRight, Calendar, Clock, Users } from 'lucide-react';
+import { useTheme } from '@/context/ThemeContext';
+import { useReadAloud } from '@/hooks/use-read-aloud';
+import { ArrowRight, Calendar, Users, BookOpen, Yoga, PaintBrush } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
   const { t } = useLanguage();
+  const { themeMode } = useTheme();
+  const heroRef = useRef<HTMLDivElement>(null);
+  
+  // Use read aloud for hero section
+  useReadAloud(heroRef, t('home.welcome') + ' ' + t('home.subtitle') + ' ' + t('home.mission.text'));
 
   // Recent activities data (would be dynamic in a real app)
   const activities = [
@@ -16,81 +23,108 @@ const Index = () => {
       title: 'Cultural Workshop',
       date: '15 Sep 2023',
       participants: '45+',
-      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      icon: <PaintBrush size={24} />,
+      description: 'An immersive workshop on traditional art forms led by master artisans. Participants learned techniques of Madhubani painting and created their own artworks.'
     },
     {
       id: 2,
       title: 'Yoga & Meditation Camp',
       date: '28 Aug 2023',
       participants: '120+',
-      image: 'https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      icon: <Yoga size={24} />,
+      description: 'A three-day retreat focusing on ancient yoga practices and meditation techniques. Participants experienced the profound benefits of mindfulness and proper breathing.'
     },
     {
       id: 3,
       title: 'Heritage Preservation Drive',
       date: '10 Aug 2023',
       participants: '65+',
-      image: 'https://images.unsplash.com/photo-1514222134-b57cbb8ce073?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      icon: <BookOpen size={24} />,
+      description: 'A community initiative to document and preserve local cultural heritage. Volunteers collected oral histories from elders and helped restore a historical temple.'
     }
   ];
 
+  // Card background based on theme
+  const getCardBg = () => {
+    switch (themeMode) {
+      case 'dark':
+        return 'bg-gray-800/80 backdrop-blur-sm border-gray-700';
+      case 'high-contrast':
+        return 'bg-black border-yellow-400 text-white';
+      default:
+        return 'bg-white/80 backdrop-blur-sm border-gray-100';
+    }
+  };
+
   return (
     <div className="page-container sacred-geometry-bg">
-      {/* Hero Section */}
-      <section className="mb-12 text-center">
-        <h1 className="text-4xl font-bold mb-2">{t('home.welcome')}</h1>
-        <p className="text-xl text-gray-600 mb-8">{t('home.subtitle')}</p>
-        
-        <div className="max-w-3xl mx-auto mb-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-100">
-          <h2 className="text-2xl font-semibold mb-3">{t('home.mission')}</h2>
-          <p className="text-gray-600 leading-relaxed">
-            {t('home.mission.text')}
+      {/* Hero Section with enhanced styling */}
+      <section className="mb-12 text-center" ref={heroRef}>
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-saf-orange to-saf-rust bg-clip-text text-transparent">
+            {t('home.welcome')}
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 font-mukta">
+            {t('home.subtitle')}
           </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          <Button asChild className="bg-saf-orange hover:bg-saf-orange/90 text-white py-6">
-            <Link to="/volunteer">
-              {t('home.join.us')}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button asChild variant="outline" className="border-saf-orange text-saf-orange hover:bg-saf-orange/10 py-6">
-            <Link to="/about">
-              {t('home.learn.more')}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          
+          <div className={`max-w-3xl mx-auto mb-8 p-6 rounded-2xl shadow-sm ${getCardBg()} transform hover:scale-102 transition-all duration-300`}>
+            <h2 className="text-2xl font-semibold mb-3">{t('home.mission')}</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              {t('home.mission.text')}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            <Button asChild className="py-6 shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1">
+              <Link to="/volunteer">
+                {t('home.join.us')}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 py-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <Link to="/about">
+                {t('home.learn.more')}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
       
-      {/* Recent Activities */}
-      <section className="mb-8">
+      {/* Recent Activities with new design */}
+      <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-6 text-center">{t('home.recent.activities')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {activities.map((activity) => (
-            <Card key={activity.id} className="overflow-hidden animate-fade-in">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={activity.image} 
-                  alt={activity.title} 
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <CardContent className="p-4">
+          {activities.map((activity, index) => {
+            const activityRef = useRef<HTMLDivElement>(null);
+            useReadAloud(activityRef, `${activity.title}. ${activity.description} Held on ${activity.date} with ${activity.participants} participants.`);
+            
+            return (
+              <div 
+                key={activity.id} 
+                ref={activityRef}
+                className="activity-card float-animation" 
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="activity-icon">
+                  {activity.icon}
+                </div>
                 <h3 className="font-semibold text-lg mb-2">{activity.title}</h3>
-                <div className="flex items-center text-sm text-gray-500 mb-1">
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                  {activity.description}
+                </p>
+                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-1">
                   <Calendar size={14} className="mr-1" />
                   <span>{activity.date}</span>
                 </div>
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                   <Users size={14} className="mr-1" />
                   <span>{activity.participants} participants</span>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            );
+          })}
         </div>
       </section>
     </div>

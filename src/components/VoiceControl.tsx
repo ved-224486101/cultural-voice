@@ -1,10 +1,12 @@
 
 import React, { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { useTheme } from '@/context/ThemeContext';
 import { Mic, Volume2 } from 'lucide-react';
 
 const VoiceControl = () => {
   const { t } = useLanguage();
+  const { themeMode } = useTheme();
   const [isListening, setIsListening] = useState(false);
   const [showWaves, setShowWaves] = useState(false);
 
@@ -24,9 +26,20 @@ const VoiceControl = () => {
     }
   };
 
+  const getOrbClass = () => {
+    switch (themeMode) {
+      case 'dark':
+        return 'bg-saf-indigo/70';
+      case 'high-contrast':
+        return 'bg-yellow-500';
+      default:
+        return 'bg-saf-indigo/70';
+    }
+  };
+
   return (
     <button 
-      className="voice-orb" 
+      className={`voice-orb ${getOrbClass()}`}
       onClick={toggleListening}
       aria-label={isListening ? t('voice.listening') : t('voice.commands')}
     >
@@ -36,7 +49,7 @@ const VoiceControl = () => {
             {[...Array(5)].map((_, i) => (
               <div 
                 key={i} 
-                className="voice-wave" 
+                className="voice-wave bg-white" 
                 style={{ 
                   height: `${Math.random() * 12 + 4}px`,
                   animationDelay: `${i * 0.1}s`
