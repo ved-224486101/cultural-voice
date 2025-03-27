@@ -21,11 +21,11 @@ const Layout = ({ children }: LayoutProps) => {
   const getPatternClass = () => {
     switch (themeMode) {
       case 'dark':
-        return 'dark-pattern';
+        return 'bg-gradient-to-br from-gray-900 to-saf-deepblue pattern-grid-lg pattern-slate-800 pattern-opacity-10 pattern-offset-x-2 pattern-offset-y-2';
       case 'high-contrast':
-        return 'high-contrast-pattern';
+        return 'bg-black pattern-zigzag-lg pattern-yellow-500 pattern-opacity-5 pattern-offset-x-2 pattern-offset-y-1';
       default:
-        return 'rangoli-pattern';
+        return 'bg-gradient-to-br from-saf-offwhite to-white pattern-topography-lg pattern-saf-ochre pattern-opacity-5';
     }
   };
 

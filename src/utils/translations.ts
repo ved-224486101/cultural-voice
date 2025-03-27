@@ -1,4 +1,3 @@
-
 export const translations = {
   en: {
     // Common
@@ -32,6 +31,8 @@ export const translations = {
     'about.history': 'Our History',
     'about.values': 'Our Values',
     'about.team': 'Our Team',
+    'about.team.leader': 'Leader',
+    'about.team.member': 'Member',
     
     // Volunteer page
     'volunteer.title': 'Volunteer',
@@ -58,6 +59,12 @@ export const translations = {
     'donate.popular.choice': 'Popular Choice',
     'donate.proceed': 'Proceed to Payment',
     'donate.thank.you': 'Thank you for your generous support',
+    'donate.impact.title': 'Your Donation Impact',
+    'donate.impact.description': 'See how your contribution makes a difference',
+    'donate.secure.payment': 'Secure Payment',
+    'donate.tax.deductible': 'Tax Deductible',
+    'donate.amount': 'Amount',
+    'donate.impact': 'Makes a Real Impact',
     
     // Contact page
     'contact.title': 'Contact Us',
@@ -75,6 +82,11 @@ export const translations = {
     'voice.listening': 'Listening...',
     'voice.commands': 'Voice Commands',
     'voice.help': 'How can I help you?',
+    'voice.navigating': 'Navigating to',
+    'voice.theme.changed': 'Theme changed to',
+    'voice.accessibility': 'Accessibility Setting',
+    'voice.read.aloud.toggled': 'Read Aloud feature toggled',
+    'voice.language.changed': 'Language changed to',
     
     // Accessibility
     'accessibility.title': 'Accessibility',
@@ -114,6 +126,8 @@ export const translations = {
     'about.history': 'हमारा इतिहास',
     'about.values': 'हमारे मूल्य',
     'about.team': 'हमारी टीम',
+    'about.team.leader': 'नेता',
+    'about.team.member': 'सदस्य',
     
     // Volunteer page
     'volunteer.title': 'स्वयंसेवक',
@@ -140,6 +154,12 @@ export const translations = {
     'donate.popular.choice': 'लोकप्रिय विकल्प',
     'donate.proceed': 'भुगतान के लिए आगे बढ़ें',
     'donate.thank.you': 'आपके उदार समर्थन के लिए धन्यवाद',
+    'donate.impact.title': 'आपके दान का प्रभाव',
+    'donate.impact.description': 'देखें कि आपका योगदान कैसे अंतर लाता है',
+    'donate.secure.payment': 'सुरक्षित भुगतान',
+    'donate.tax.deductible': 'कर कटौती योग्य',
+    'donate.amount': 'राशि',
+    'donate.impact': 'वास्तविक प्रभाव डालता है',
     
     // Contact page
     'contact.title': 'संपर्क करें',
@@ -157,6 +177,11 @@ export const translations = {
     'voice.listening': 'सुन रहा हूँ...',
     'voice.commands': 'आवाज कमांड',
     'voice.help': 'मैं आपकी कैसे सहायता कर सकता हूँ?',
+    'voice.navigating': 'नेवि��ेट कर रहा हूँ',
+    'voice.theme.changed': 'थीम बदली गई',
+    'voice.accessibility': 'पहुंच सेटिंग',
+    'voice.read.aloud.toggled': 'पढ़कर सुनाने की सुविधा टॉगल की गई',
+    'voice.language.changed': 'भाषा बदली गई',
     
     // Accessibility
     'accessibility.title': 'पहुंच',
@@ -181,7 +206,7 @@ export const translations = {
     'nav.donate': 'दान करा',
     'nav.contact': 'संपर्क',
     
-    // Home page (partial translations for demo)
+    // Home page
     'home.welcome': 'स्वागत आहे',
     'home.subtitle': 'संस्कृती आणि परंपरा समर्थन',
     'home.mission': 'आमचे ध्येय',
@@ -189,6 +214,28 @@ export const translations = {
     'home.recent.activities': 'अलीकडील क्रियाकलाप',
     'home.join.us': 'आमच्यासोबत सामील व्हा',
     'home.learn.more': 'अधिक जाणून घ्या',
+    
+    // Voice control
+    'voice.listening': 'ऐकत आहे...',
+    'voice.commands': 'आवाज आज्ञा',
+    'voice.help': 'मी तुमची कशी मदत करू शकतो?',
+    'voice.navigating': 'नेव्हिगेट करत आहे',
+    'voice.theme.changed': 'थीम बदलली',
+    'voice.accessibility': 'अ‍ॅक्सेसिबिलिटी सेटिंग',
+    'voice.read.aloud.toggled': 'वाचून दाखवणे टॉगल केले',
+    'voice.language.changed': 'भाषा बदलली',
+    
+    // About Team
+    'about.team.leader': 'नेता',
+    'about.team.member': 'सदस्य',
+    
+    // Donate page
+    'donate.impact.title': 'आपल्या दानाचा प्रभाव',
+    'donate.impact.description': 'आपले योगदान कसा फरक करते ते पहा',
+    'donate.secure.payment': 'सुरक्षित पेमेंट',
+    'donate.tax.deductible': 'कर कपातीस पात्र',
+    'donate.amount': 'रक्कम',
+    'donate.impact': 'खरा प्रभाव पडतो',
   },
   tu: {
     // Tulu - basic translations
