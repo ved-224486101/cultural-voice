@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
 import { useReadAloud } from '@/hooks/use-read-aloud';
-import { ArrowRight, Calendar, Users, BookOpen, Yoga, PaintBrush } from 'lucide-react';
+import { ArrowRight, Calendar, Users, BookOpen, Paintbrush, AlignJustify } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
@@ -23,7 +23,7 @@ const Index = () => {
       title: 'Cultural Workshop',
       date: '15 Sep 2023',
       participants: '45+',
-      icon: <PaintBrush size={24} />,
+      icon: <Paintbrush size={24} />,
       description: 'An immersive workshop on traditional art forms led by master artisans. Participants learned techniques of Madhubani painting and created their own artworks.'
     },
     {
@@ -31,7 +31,7 @@ const Index = () => {
       title: 'Yoga & Meditation Camp',
       date: '28 Aug 2023',
       participants: '120+',
-      icon: <Yoga size={24} />,
+      icon: <AlignJustify size={24} />,
       description: 'A three-day retreat focusing on ancient yoga practices and meditation techniques. Participants experienced the profound benefits of mindfulness and proper breathing.'
     },
     {

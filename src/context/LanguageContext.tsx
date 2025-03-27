@@ -5,6 +5,7 @@ import { translations } from '@/utils/translations';
 export type Language = 'en' | 'hi' | 'mr' | 'tu' | 'or';
 
 interface LanguageContextType {
+  language: Language; // Export language property for use in hooks
   currentLanguage: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
@@ -29,7 +30,12 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <LanguageContext.Provider value={{ currentLanguage, setLanguage, t }}>
+    <LanguageContext.Provider value={{ 
+      language: currentLanguage, // Add language property for hooks
+      currentLanguage, 
+      setLanguage, 
+      t 
+    }}>
       {children}
     </LanguageContext.Provider>
   );
